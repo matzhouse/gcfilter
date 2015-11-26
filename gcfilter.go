@@ -17,20 +17,20 @@ func Filter() error {
 		return err
 	}
 
-	os.Stdout = w
+	os.Stderr = w
 
 	go func() {
 		scanner := bufio.NewScanner(r)
 		for scanner.Scan() {
 			line := scanner.Text()
 
-			if line[0:2] == "gc" {
+			if line[0:3] == "gc" {
 
 				log.Println("Found a GC - %v", line)
 
 				continue
 			}
-			current.WriteString(line)
+			current.WriteString(line + "\n")
 		}
 	}()
 
