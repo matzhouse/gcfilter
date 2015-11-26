@@ -24,12 +24,9 @@ func Filter() error {
 		for scanner.Scan() {
 			line := scanner.Text()
 
-			if line[0:3] == "gc" {
+			log.Printf("LINE - %v \n", line)
+			log.Printf("LINE START - %v \n", line[0:3])
 
-				log.Println("Found a GC - %v", line)
-
-				continue
-			}
 			current.WriteString(line + "\n")
 		}
 	}()
