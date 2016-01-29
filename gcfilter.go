@@ -119,7 +119,7 @@ func Filter() error {
 }
 
 func GCOn() bool {
-	var ms *runtime.MemStats
+	ms := &runtime.MemStats{}
 	runtime.ReadMemStats(ms)
 
 	return ms.DebugGC
